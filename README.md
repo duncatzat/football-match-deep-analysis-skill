@@ -18,6 +18,7 @@
 | `SKILL.md` | 路由层：护栏、4 门工作流、深度档、自检 |
 | `playbook.md` | 操作手册：状态校验、三角验证、盘口反推、赛后复盘 |
 | `template.md` | 输出骨架：档位映射、三档章节、结论汇总表、免责声明 |
+| `tools/handicap.py` | 泊松盘口计算器：由赔率/λ 精算公平亚盘·大小球·比分分布 |
 | `LICENSE` | Apache License 2.0（沿用原项目） |
 | `README.original.md` | 原作者 README 存档（署名/出处） |
 
@@ -34,6 +35,18 @@
 
 触发词：`足球分析` / `赛前分析` / `盘口分析` / `比分预测` / `赛后复盘` / `football analysis` 等。
 追加 `快速版` / `深度+混合方案` / `赛后复盘` 切换模式。
+
+## 🧰 工具（tools/）
+`tools/handicap.py` —— 泊松盘口计算器：从 1X2 赔率或期望进球 λ 逐案反算**公平亚盘 / 大小球 / 比分分布**，比 `playbook.md` §4.1 速查表更精确（尤其重型/高进球热门）。仅依赖 Python 3 标准库。
+
+```bash
+# 美式 1X2 赔率（主 平 客），可选 --total 总进球主线（更准）
+python tools/handicap.py --odds -180 365 540 --total 2.62
+# 已有期望进球时最精确
+python tools/handicap.py --lambdas 1.90 0.80
+# 自检（对称/德国/巴西三案例）
+python tools/handicap.py --selftest
+```
 
 ## 📝 与原版差异（v2 → v3.2）
 本项目是对 [timepatience/-Football-Match-Deep-Analysis-Skillv2](https://github.com/timepatience/-Football-Match-Deep-Analysis-Skillv2)（Apache-2.0）的**修改增强衍生版**。依 Apache 2.0 §4(b) 声明主要变更：
