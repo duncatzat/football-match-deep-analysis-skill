@@ -18,7 +18,7 @@
 | `SKILL.md` | 路由层：护栏、4 门工作流、深度档、自检 |
 | `playbook.md` | 操作手册：状态校验、三角验证、盘口反推、赛后复盘 |
 | `template.md` | 输出骨架：档位映射、三档章节、结论汇总表、免责声明 |
-| `tools/handicap.py` | 泊松盘口计算器：由赔率/λ 精算公平亚盘·大小球·比分分布 |
+| `tools/handicap.py` | 泊松/Dixon-Coles 盘口计算器：由赔率/λ 精算公平亚盘·大小球·比分分布 |
 | `LICENSE` | Apache License 2.0（沿用原项目） |
 | `README.original.md` | 原作者 README 存档（署名/出处） |
 
@@ -37,7 +37,7 @@
 追加 `快速版` / `深度+混合方案` / `赛后复盘` 切换模式。
 
 ## 🧰 工具（tools/）
-`tools/handicap.py` —— 泊松盘口计算器：从 1X2 赔率或期望进球 λ 逐案反算**公平亚盘 / 大小球 / 比分分布**，比 `playbook.md` §4.1 速查表更精确（尤其重型/高进球热门）。仅依赖 Python 3 标准库。
+`tools/handicap.py` —— 泊松 / **Dixon-Coles** 盘口计算器：从 1X2 赔率或期望进球 λ 逐案反算**公平亚盘 / 大小球 / 比分分布**，比 `playbook.md` §4.1 速查表更精确（尤其重型/高进球热门）。默认 Dixon-Coles ρ=-0.13（修正低分平局偏差），`--poisson` 可退回独立泊松；仅依赖 Python 3 标准库。
 
 ```bash
 # 美式 1X2 赔率（主 平 客），可选 --total 总进球主线（更准）
