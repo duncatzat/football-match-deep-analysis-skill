@@ -19,6 +19,7 @@
 | `playbook.md` | 操作手册：状态校验、三角验证、盘口反推、赛后复盘 |
 | `template.md` | 输出骨架：档位映射、三档章节、结论汇总表、免责声明 |
 | `tools/handicap.py` | 泊松/Dixon-Coles 盘口计算器：由赔率/λ 精算公平亚盘·大小球·比分分布 |
+| `tally.md` | 预测 vs 实测校准样本（N=10 起），积累后用于数值校准 |
 | `LICENSE` | Apache License 2.0（沿用原项目） |
 | `README.original.md` | 原作者 README 存档（署名/出处） |
 
